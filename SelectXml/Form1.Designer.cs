@@ -39,10 +39,10 @@
             // 
             // button1
             // 
-            button1.Location = new Point(45, 32);
+            button1.Location = new Point(39, 24);
             button1.Margin = new Padding(1);
             button1.Name = "button1";
-            button1.Size = new Size(88, 28);
+            button1.Size = new Size(77, 21);
             button1.TabIndex = 0;
             button1.Text = "Select Xml";
             button1.UseVisualStyleBackColor = true;
@@ -50,19 +50,20 @@
             // 
             // button2
             // 
-            button2.Location = new Point(144, 96);
+            button2.Location = new Point(126, 72);
             button2.Margin = new Padding(1);
             button2.Name = "button2";
-            button2.Size = new Size(88, 28);
+            button2.Size = new Size(77, 21);
             button2.TabIndex = 1;
             button2.Text = "ReadFile";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(376, 220);
+            ClientSize = new Size(329, 165);
             Controls.Add(button2);
             Controls.Add(button1);
             Margin = new Padding(1);
