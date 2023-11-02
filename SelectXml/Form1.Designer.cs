@@ -30,6 +30,7 @@
         {
             openFileDialog1 = new OpenFileDialog();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // openFileDialog1
@@ -38,20 +39,33 @@
             // 
             // button1
             // 
-            button1.Location = new Point(95, 66);
+            button1.Location = new Point(45, 32);
+            button1.Margin = new Padding(1);
             button1.Name = "button1";
-            button1.Size = new Size(188, 58);
+            button1.Size = new Size(88, 28);
             button1.TabIndex = 0;
             button1.Text = "Select Xml";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_ClickAsync;
             // 
+            // button2
+            // 
+            button2.Location = new Point(144, 96);
+            button2.Margin = new Padding(1);
+            button2.Name = "button2";
+            button2.Size = new Size(88, 28);
+            button2.TabIndex = 1;
+            button2.Text = "ReadFile";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(17F, 41F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(376, 220);
+            Controls.Add(button2);
             Controls.Add(button1);
+            Margin = new Padding(1);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -61,5 +75,6 @@
 
         private OpenFileDialog openFileDialog1;
         private Button button1;
+        private Button button2;
     }
 }

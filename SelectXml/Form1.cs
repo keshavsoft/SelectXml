@@ -10,8 +10,9 @@ namespace SelectXml
             InitializeComponent();
         }
 
-        private async Task<string> HttpToTallyAsync (String inXml){
- try
+        private async Task<string> HttpToTallyAsync(String inXml)
+        {
+            try
             {
 
                 var url = "http://localhost:9000/";
@@ -19,17 +20,17 @@ namespace SelectXml
                 using var client = new HttpClient();
 
 
-    var BodyForPost = new StringContent(inXml, Encoding.UTF8, "text/xml");
-    var response = await client.PostAsync(url, BodyForPost);
+                var BodyForPost = new StringContent(inXml, Encoding.UTF8, "text/xml");
+                var response = await client.PostAsync(url, BodyForPost);
 
-    var result = await response.Content.ReadAsStringAsync();
+                var result = await response.Content.ReadAsStringAsync();
                 return result;
             }
             catch (Exception error)
             {
-    return null;
-};
-}
+                return null;
+            };
+        }
 
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
