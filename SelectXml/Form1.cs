@@ -1,6 +1,7 @@
 using System.Security.Policy;
 using System.Text;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace SelectXml
 {
@@ -60,7 +61,34 @@ namespace SelectXml
             }
 
             String LocalTestString = await HttpToTallyAsync(fileContent);
+            System.IO.File.WriteAllText(@"C:\KeshavSoft\Output\csc7.XML", LocalTestString);
+            string fileName = "csc7.xml";
+            string customPath = @"C:\KeshavSoft\Output\";
+            string filePath = Path.Combine(customPath, fileName);
 
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+
+            XmlNodeList AmountNodes = xmlDoc.SelectNodes("//LEDGER");
+            foreach (XmlNode AmountNode in AmountNodes)
+            {
+                var attribute = AmountNode.Attributes["NAME"];
+                if (attribute != null)
+                {
+                    string AccountName = attribute.Value;
+                    //Console.WriteLine("Value", AccountName);
+                    //AmountNode.InnerText = AccountName;
+                }
+
+            }
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                xmlDoc.Save(writer);
+            }
+
+            String title = "Alert";
+            MessageBox.Show(LocalTestString, title);
+            String k1 = "";
         }
 
         private String ReadHead()
@@ -111,7 +139,51 @@ namespace SelectXml
 
 
             String LocalTestString = await HttpToTallyAsync(xmlDocHead.OuterXml);
+            String title = "Alert";
+            MessageBox.Show(LocalTestString, title);
+        }
 
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\KeshavSoft\\Datas";
+            openFileDialog1.Filter = "Database files (*.xml)|*.xml";
+            openFileDialog1.FilterIndex = 0;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            string selectedFileName = openFileDialog1.FileName;
+
+            var fileStream = openFileDialog1.OpenFile();
+            String fileContent;
+
+            using (StreamReader reader = new StreamReader(fileStream))
+            {
+                fileContent = reader.ReadToEnd();
+            }
+
+            String LocalTestString = await HttpToTallyAsync(fileContent);
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(LocalTestString);
+
+            XmlNodeList AmountNodes = xmlDoc.SelectNodes("//LEDGER");
+            foreach (XmlNode AmountNode in AmountNodes)
+            {
+                var attribute = AmountNode.Attributes["NAME"];
+                if (attribute != null)
+                {
+                    string AccountName = attribute.Value;
+                    comboBox3.Items.Add(AccountName);
+                }
+
+            }
+            String k1 = "";
         }
     }
 }
