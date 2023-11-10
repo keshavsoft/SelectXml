@@ -185,5 +185,21 @@ namespace SelectXml
             }
             String k1 = "";
         }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            string filePath = @"D:\KeshavSoft\datas\kkdcycle\LedgerNamesOnly.xml";
+            XmlDocument xmlDoc = new XmlDocument();
+
+            if (File.Exists(filePath))
+            {
+                xmlDoc.Load(filePath);
+            };
+
+            var Output = await HttpToTallyAsync(xmlDoc.InnerXml);
+
+            richTextBox1.Text = Output;
+            //System.IO.File.WriteAllText(@"C:\KeshavSoft\Output\Firm.XML", Output);
+        }
     }
 }
