@@ -1,0 +1,53 @@
+<ENVELOPE>
+	<HEADER>
+		<VERSION>1</VERSION>
+		<TALLYREQUEST>Export</TALLYREQUEST>
+		<TYPE>Data</TYPE>
+		<ID>CredFlow_CompanyWiseStockItem</ID>
+	</HEADER>
+	<BODY>
+		<DESC>
+			<STATICVARIABLES>
+				<SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT>
+			</STATICVARIABLES>
+			<TDL>
+				<TDLMESSAGE>
+					<REPORT NAME="CredFlow_CompanyWiseStockItem" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<FORMS>CredFlow_CompanyWiseStockItem</FORMS>
+					</REPORT>
+					<FORM NAME="CredFlow_CompanyWiseStockItem" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<TOPPARTS>CredFlow_CompanyWiseStockItem</TOPPARTS>
+					</FORM>
+					<PART NAME="CredFlow_CompanyWiseStockItem" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<TOPLINES>CredFlow_CompanyWiseStockItem</TOPLINES>
+						<REPEAT>CredFlow_CompanyWiseStockItem : CredFlow_loopCredFlowStocks</REPEAT>
+						<SCROLLED>Vertical</SCROLLED>
+					</PART>
+					<LINE NAME="CredFlow_CompanyWiseStockItem" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<LEFTFIELDS>CredFlow_StockItemName</LEFTFIELDS>
+						<XMLTAG>&quot;stockitems&quot;</XMLTAG>
+					</LINE>
+
+					<FIELD NAME="CredFlow_StockItemName" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<XMLTAG>&quot;ksstockitemname&quot;</XMLTAG>
+						<SET>$CredFlow_StockItemName</SET>
+					</FIELD>
+					<COLLECTION NAME="CredFlow_loopCredFlowStocks" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<COLLECTIONS>CredFlow_stock_collection:CredFlow_loadedCompaniescoll</COLLECTIONS>
+					</COLLECTION>
+					<COLLECTION NAME="CredFlow_stock_collection" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<TYPE>StockItem</TYPE>
+						<BELONGSTO>Yes</BELONGSTO>
+						<METHOD>CredFlow_applicable_from:$$FullListEx:&quot;;&quot;:gstdetails:$applicablefrom</METHOD>
+						<METHOD>CredFlow_Stock_hsn_code:$$FullListEx:&quot;;&quot;:gstdetails:$hsncode</METHOD>
+						<METHOD>CredFlow_StockItemName:$name</METHOD>
+					</COLLECTION>
+					<COLLECTION NAME="CredFlow_loadedCompaniescoll" ISMODIFY="No" ISFIXED="No" ISINITIALIZE="No" ISOPTION="No" ISINTERNAL="No">
+						<TYPE>Company</TYPE>
+						<NATIVEMETHOD>Name,Guid</NATIVEMETHOD>
+					</COLLECTION>
+				</TDLMESSAGE>
+			</TDL>
+		</DESC>
+	</BODY>
+</ENVELOPE>

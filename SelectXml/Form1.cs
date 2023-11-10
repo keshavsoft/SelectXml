@@ -232,37 +232,50 @@ namespace SelectXml
             };
             var json = JsonSerializer.Serialize(strings);
 
-            richTextBox1.Text = json;
+            //richTextBox1.Text = json;
+            richTextBox1.Text = AmountNodes.Count.ToString();
 
         }
 
         private async void button6_Click(object sender, EventArgs e)
         {
-            var filePath = SelectXml.Properties.Resources.StockItem ;
-          
+            var filePath = SelectXml.Properties.Resources.StockTdlSimple;
+            //richTextBox1.Text = filePath;
+
             var Output = await HttpToTallyAsync(filePath);
 
-            //  richTextBox1.Text = Output;
+            richTextBox1.Text = Output;
+
             List<String> strings = new List<String>();
 
             XmlDocument xmlTallyDoc = new XmlDocument();
             xmlTallyDoc.LoadXml(Output);
 
-            XmlNodeList AmountNodes = xmlTallyDoc.SelectNodes("//STOCKITEM");
+            XmlNodeList AmountNodes = xmlTallyDoc.SelectNodes("//KSSTOCKITEMNAME");
             foreach (XmlNode AmountNode in AmountNodes)
             {
-                var attribute = AmountNode.Attributes["NAME"];
-                if (attribute != null)
-                {
-                    string AccountName = attribute.Value;
-                    strings.Add(AccountName);
-                }
+                string AccountName = AmountNode.InnerText;
+                strings.Add(AccountName);
 
             };
             var json = JsonSerializer.Serialize(strings);
 
-            richTextBox1.Text = json;
+            richTextBox1.Text = AmountNodes.Count.ToString();
 
+
+        }
+
+        private async void button7_Click(object sender, EventArgs e)
+        {
+            var filePath = SelectXml.Properties.Resources.StockItemsOnly;
+          var Output = await HttpToTallyAsync(filePath);
+            
+            XmlDocument xmlTallyDoc = new XmlDocument();
+            xmlTallyDoc.LoadXml(Output);
+
+            XmlNodeList AmountNodes = xmlTallyDoc.SelectNodes("//STOCKITEM");
+
+            richTextBox1.Text = AmountNodes.Count.ToString();
 
         }
     }

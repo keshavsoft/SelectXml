@@ -87,6 +87,32 @@ namespace SelectXml.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;ENVELOPE&gt;
+        ///	&lt;HEADER&gt;
+        ///		&lt;VERSION&gt;1&lt;/VERSION&gt;
+        ///		&lt;TALLYREQUEST&gt;Export&lt;/TALLYREQUEST&gt;
+        ///		&lt;TYPE&gt;Data&lt;/TYPE&gt;
+        ///		&lt;ID&gt;CredFlow_CompanyWiseStockItem&lt;/ID&gt;
+        ///	&lt;/HEADER&gt;
+        ///	&lt;BODY&gt;
+        ///		&lt;DESC&gt;
+        ///			&lt;STATICVARIABLES&gt;
+        ///				&lt;SVEXPORTFORMAT&gt;$$SysName:XML&lt;/SVEXPORTFORMAT&gt;
+        ///			&lt;/STATICVARIABLES&gt;
+        ///			&lt;TDL&gt;
+        ///				&lt;TDLMESSAGE&gt;
+        ///					&lt;REPORT NAME=&quot;CredFlow_CompanyWiseStockItem&quot; ISMODIFY=&quot;No&quot; ISFIXED=&quot;No&quot; ISINITIALIZE=&quot;No&quot; ISOPTION=&quot;No&quot; ISINTERNAL=&quot;No&quot;&gt;
+        ///						&lt;FORMS&gt;CredFlow_CompanyWiseStockItem&lt;/FORMS&gt;
+        ///					&lt;/REPORT&gt;
+        ///					&lt;FORM N [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StockItem {
+            get {
+                return ResourceManager.GetString("StockItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ENVELOPE&gt;
         ///   &lt;HEADER&gt;
         ///     &lt;VERSION&gt;1&lt;/VERSION&gt;
         ///     &lt;TALLYREQUEST&gt;Export&lt;/TALLYREQUEST&gt;
@@ -95,18 +121,69 @@ namespace SelectXml.Properties {
         ///   &lt;/HEADER&gt;
         ///   &lt;BODY&gt;
         ///     &lt;DESC&gt;
+        ///       &lt;STATICVARIABLES&gt;
+        ///         &lt;SVEXPORTFORMAT&gt;$$SysName:UTF8JSON&lt;/SVEXPORTFORMAT&gt;
+        ///         &lt;SVExportLanguage&gt;$$SysName:UTF8JSON&lt;/SVExportLanguage&gt;
+        ///       &lt;/STATICVARIABLES&gt;
         ///       &lt;TDL&gt;
         ///         &lt;TDLMESSAGE&gt;
-        ///           &lt;COLLECTION NAME=&quot;Company Collection&quot; ISMODIFY=&quot;No&quot; ISFIXED=&quot;No&quot; ISINITIALIZE=&quot;No&quot; ISOPTION=&quot;No&quot; ISINTERNAL=&quot;No&quot;&gt;
-        ///             &lt;TYPE&gt;StockItem&lt;/TYPE&gt;
-        ///             &lt;BELONGSTO&gt;Yes&lt;/BELONGSTO&gt;
-        ///             &lt;FETCH&gt;*&lt;/FETCH&gt;
-        ///           &lt;/COLLECTION&gt;
-        ///         &lt;/TDLMESS [rest of string was truncated]&quot;;.
+        ///           &lt;COLLECTION NAME=&quot;Company Collection&quot; ISMODIFY=&quot;No&quot; ISFIXED=&quot;No&quot; ISINITIALIZE=&quot;No&quot; ISOP [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string StockItem {
+        internal static string StockItemsOnly {
             get {
-                return ResourceManager.GetString("StockItem", resourceCulture);
+                return ResourceManager.GetString("StockItemsOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ENVELOPE&gt;
+        ///	&lt;HEADER&gt;
+        ///		&lt;VERSION&gt;1&lt;/VERSION&gt;
+        ///		&lt;TALLYREQUEST&gt;Export&lt;/TALLYREQUEST&gt;
+        ///		&lt;TYPE&gt;Data&lt;/TYPE&gt;
+        ///		&lt;ID&gt;CredFlow_CompanyWiseStockItem&lt;/ID&gt;
+        ///	&lt;/HEADER&gt;
+        ///	&lt;BODY&gt;
+        ///		&lt;DESC&gt;
+        ///			&lt;STATICVARIABLES&gt;
+        ///				&lt;SVEXPORTFORMAT&gt;$$SysName:XML&lt;/SVEXPORTFORMAT&gt;
+        ///			&lt;/STATICVARIABLES&gt;
+        ///			&lt;TDL&gt;
+        ///				&lt;TDLMESSAGE&gt;
+        ///					&lt;REPORT NAME=&quot;CredFlow_CompanyWiseStockItem&quot; ISMODIFY=&quot;No&quot; ISFIXED=&quot;No&quot; ISINITIALIZE=&quot;No&quot; ISOPTION=&quot;No&quot; ISINTERNAL=&quot;No&quot;&gt;
+        ///						&lt;FORMS&gt;CredFlow_CompanyWiseStockItem&lt;/FORMS&gt;
+        ///					&lt;/REPORT&gt;
+        ///					&lt;FORM N [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StockTdl {
+            get {
+                return ResourceManager.GetString("StockTdl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;ENVELOPE&gt;
+        ///	&lt;HEADER&gt;
+        ///		&lt;VERSION&gt;1&lt;/VERSION&gt;
+        ///		&lt;TALLYREQUEST&gt;Export&lt;/TALLYREQUEST&gt;
+        ///		&lt;TYPE&gt;Data&lt;/TYPE&gt;
+        ///		&lt;ID&gt;CredFlow_CompanyWiseStockItem&lt;/ID&gt;
+        ///	&lt;/HEADER&gt;
+        ///	&lt;BODY&gt;
+        ///		&lt;DESC&gt;
+        ///			&lt;STATICVARIABLES&gt;
+        ///				&lt;SVEXPORTFORMAT&gt;$$SysName:XML&lt;/SVEXPORTFORMAT&gt;
+        ///			&lt;/STATICVARIABLES&gt;
+        ///			&lt;TDL&gt;
+        ///				&lt;TDLMESSAGE&gt;
+        ///					&lt;REPORT NAME=&quot;CredFlow_CompanyWiseStockItem&quot; ISMODIFY=&quot;No&quot; ISFIXED=&quot;No&quot; ISINITIALIZE=&quot;No&quot; ISOPTION=&quot;No&quot; ISINTERNAL=&quot;No&quot;&gt;
+        ///						&lt;FORMS&gt;CredFlow_CompanyWiseStockItem&lt;/FORMS&gt;
+        ///					&lt;/REPORT&gt;
+        ///					&lt;FORM N [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string StockTdlSimple {
+            get {
+                return ResourceManager.GetString("StockTdlSimple", resourceCulture);
             }
         }
     }
