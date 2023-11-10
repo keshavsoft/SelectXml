@@ -1,5 +1,6 @@
 using System.Security.Policy;
 using System.Text;
+using System.Text.Json;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -200,6 +201,69 @@ namespace SelectXml
 
             richTextBox1.Text = Output;
             //System.IO.File.WriteAllText(@"C:\KeshavSoft\Output\Firm.XML", Output);
+        }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            string filePath = @"D:\KeshavSoft\datas\kkdcycle\LedgerNamesOnly.xml";
+            XmlDocument xmlDoc = new XmlDocument();
+
+            if (File.Exists(filePath))
+            {
+                xmlDoc.Load(filePath);
+            };
+
+            var Output = await HttpToTallyAsync(xmlDoc.InnerXml);
+            List<String> strings = new List<String>();
+
+            XmlDocument xmlTallyDoc = new XmlDocument();
+            xmlTallyDoc.LoadXml(Output);
+
+            XmlNodeList AmountNodes = xmlTallyDoc.SelectNodes("//LEDGER");
+            foreach (XmlNode AmountNode in AmountNodes)
+            {
+                var attribute = AmountNode.Attributes["NAME"];
+                if (attribute != null)
+                {
+                    string AccountName = attribute.Value;
+                    strings.Add(AccountName);
+                }
+
+            };
+            var json = JsonSerializer.Serialize(strings);
+
+            richTextBox1.Text = json;
+
+        }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            var filePath = SelectXml.Properties.Resources.StockItem ;
+          
+            var Output = await HttpToTallyAsync(filePath);
+
+            //  richTextBox1.Text = Output;
+            List<String> strings = new List<String>();
+
+            XmlDocument xmlTallyDoc = new XmlDocument();
+            xmlTallyDoc.LoadXml(Output);
+
+            XmlNodeList AmountNodes = xmlTallyDoc.SelectNodes("//STOCKITEM");
+            foreach (XmlNode AmountNode in AmountNodes)
+            {
+                var attribute = AmountNode.Attributes["NAME"];
+                if (attribute != null)
+                {
+                    string AccountName = attribute.Value;
+                    strings.Add(AccountName);
+                }
+
+            };
+            var json = JsonSerializer.Serialize(strings);
+
+            richTextBox1.Text = json;
+
+
         }
     }
 }

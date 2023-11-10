@@ -35,6 +35,8 @@
             comboBox3 = new ComboBox();
             richTextBox1 = new RichTextBox();
             button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // openFileDialog1
@@ -102,11 +104,35 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(510, 151);
+            button5.Margin = new Padding(1);
+            button5.Name = "button5";
+            button5.Size = new Size(151, 28);
+            button5.TabIndex = 8;
+            button5.Text = "Loop Names";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(390, 81);
+            button6.Margin = new Padding(1);
+            button6.Name = "button6";
+            button6.Size = new Size(88, 28);
+            button6.TabIndex = 9;
+            button6.Text = "Stock Item";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(874, 520);
+            Controls.Add(button6);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(richTextBox1);
             Controls.Add(comboBox3);
@@ -128,5 +154,7 @@
         private ComboBox comboBox3;
         private RichTextBox richTextBox1;
         private Button button4;
+        private Button button5;
+        private Button button6;
     }
 }
